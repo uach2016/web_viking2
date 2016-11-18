@@ -1,8 +1,4 @@
 class HomeController < ShopifyApp::AuthenticatedController
-  require 'rest-client'
-  require 'json'
-   
-
   def index
     @products = ShopifyAPI::Product.find(:all, params: { limit: 10 })
     @shop = Shop.find_by_shopify_domain(ShopifyAPI::Shop.current.domain)

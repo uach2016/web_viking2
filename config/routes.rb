@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'plan/index'
+
+  get 'plan/create'
+
   root :to => 'home#index'
   get 'home/create'
   get 'home/login_link', as: 'login_link'
@@ -11,6 +15,10 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'pRails.application.routes.draw do
+
+  get 'plan/index'
+
+  get 'plan/create'
 
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
