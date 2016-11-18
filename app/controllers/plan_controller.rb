@@ -1,7 +1,0 @@
-class PlanController < ApplicationController
-  def index
-  end
-
-  def create
-  end
-end

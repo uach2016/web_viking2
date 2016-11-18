@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'plan/index'
-
-  get 'plan/create'
-
+  
   root :to => 'home#index'
   get 'home/create'
   get 'home/login_link', as: 'login_link'
+  get 'home/upgrade_plan', as: 'upgrade_plan'
   mount ShopifyApp::Engine, at: '/'
 
   # See how all your routes lay out with "rake routes".
@@ -14,11 +12,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   # Example of regular route:
-  #   get 'pRails.application.routes.draw do
-
-  get 'plan/index'
-
-  get 'plan/create'
+  #   get 'pRails.application.routes.draw d
 
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

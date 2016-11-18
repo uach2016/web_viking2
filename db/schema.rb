@@ -1,5 +1,5 @@
 # encoding: UTF-8
-# This file is auto-generated from the current state of the database. Instead
+# This filne is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118123350) do
+ActiveRecord::Schema.define(version: 20161118152725) do
 
   create_table "market_goo_ids", force: :cascade do |t|
     t.integer  "shop_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161118123350) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "shop_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20161118123350) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "market_goo_id"
+    t.integer  "plan_id"
   end
 
   add_index "shops", ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
