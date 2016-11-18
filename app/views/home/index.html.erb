@@ -1,0 +1,14 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        title: "Home",
+        icon: "<%= asset_path('favicon.ico') %>"
+      });
+    });
+  </script>
+<% end %>
+
+
+
+<%= link_to 'Manage SEO', login_link_path, class: 'btn btn--fill btn--small btn--color', target: "_blank" %>
