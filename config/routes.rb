@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'charge/create'
+
   root :to => 'home#index'
   get 'home/create'
   get 'home/login_link', as: 'login_link'

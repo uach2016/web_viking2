@@ -98,7 +98,7 @@ class HomeController < ShopifyApp::AuthenticatedController
 
     #Save the shiz
     @market_goo_id.save
-    redirect_to :back
+    create_subscription
   end
 
   def login_link
@@ -112,5 +112,22 @@ class HomeController < ShopifyApp::AuthenticatedController
        response.return!(request, result, &block)
      end
   end
+ end
+
+  def create_subscription
+       # checks to see if there is already an RecurringApplicationCharge created and activated
+    unless ShopifyAPI::RecurringApplicationCharge.current
+      recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.new(
+                name: "Premiun",
+                price: 19.99,
+                return_url: ShopifyAPI::Shop.current.domain+"activatecharge",
+                trial_days: 0)
+        # if the new RecurringApplicationCharge saves,redirect the user to the confirmation URL,
+        # so they can accept or decline the charge
+      if recurring_application_charge.save
+          @tokens[:confirmation_url] = recurring_application_charge.confirmation_url
+          redirect recurring_application_charge.confirmation_url
+      end
+    end
  end
 end
