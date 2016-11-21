@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root :to => 'home#index'
   get 'home/create'
   get 'home/login_link', as: 'login_link'
-  get 'home/upgrade_plan', as: 'upgrade_plan'
+  get 'home/destroy_plan', as: 'destroy_plan'
   mount ShopifyApp::Engine, at: '/'
 
   # See how all your routes lay out with "rake routes".
